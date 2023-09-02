@@ -4,7 +4,6 @@ import { Searchbar } from "./searchBar/SearchBar";
 import { ImageGallery } from "./imageGallery/ImageGallery";
 import { Loader } from "./loader/Loader";
 import { Button } from "./button/Button";
-import { ModalWindow } from "./modal/Modal";
 import { serviceGallery } from "./apiImageService";
 import { GlobalStyle } from "GlobalStyle";
 import { ErrorMsg } from "./loader/Loader.styled";
