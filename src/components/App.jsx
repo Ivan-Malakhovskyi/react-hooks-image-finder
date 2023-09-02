@@ -63,7 +63,7 @@ export class App extends Component {
   
 
   async componentDidUpdate(prevProps, prevState) {
-    const {query,page,showLoadMoreButton} = this.state
+    const {query,page} = this.state
 
     if (prevState.query !== query || prevState.page !== page) {
       try {
@@ -138,7 +138,7 @@ export class App extends Component {
 
   render() {
 
-    const {images,loading,error,page,totalHits,showLoadMoreButton} = this.state
+    const {images,loading,error,page,totalHits} = this.state
 
  const allImagesLoaded = images.length >= totalHits;
     return (
