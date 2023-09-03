@@ -44,10 +44,7 @@ export class App extends Component {
         images: hits,
       })
  
-      // this.setState({
-      //       images: hits,
-      //   })
-        
+
      console.log("hits", hits)
     } catch (error) {
       console.log(error)
@@ -63,7 +60,7 @@ export class App extends Component {
   
 
   async componentDidUpdate(prevProps, prevState) {
-    const {query,page,images} = this.state
+    const {query,page} = this.state
 
     if (prevState.query !== query || prevState.page !== page) {
       try {
@@ -121,21 +118,18 @@ export class App extends Component {
   }
   
   handleLoadMore = () => {
-
-    const { images,totalHits } = this.state
-    // if (images.length < totalHits) {
       
     this.setState(prevState => ({
       page: prevState.page + 1,
     }))
-    // }
+
    
 
   }
 
   render() {
 
-    const {images,loading,error,page,totalHits,showLoadMoreButton} = this.state
+    const {images,loading,error,page,totalHits} = this.state
 
  const allImagesLoaded = images.length >= totalHits;
     return (
