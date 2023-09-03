@@ -44,9 +44,9 @@ export class App extends Component {
         images: hits,
       })
  
-      this.setState({
-            images: hits,
-        })
+      // this.setState({
+      //       images: hits,
+      //   })
         
      console.log("hits", hits)
     } catch (error) {
@@ -63,7 +63,7 @@ export class App extends Component {
   
 
   async componentDidUpdate(prevProps, prevState) {
-    const {query,page} = this.state
+    const {query,page,images} = this.state
 
     if (prevState.query !== query || prevState.page !== page) {
       try {
@@ -78,6 +78,7 @@ export class App extends Component {
         }
         
         if (page === Math.ceil(totalHits / 40)) {
+          console.log(totalHits)
           toast.success('You have reached the end of the list of images found')
           this.setState({
             showLoadMoreButton: false,  
@@ -85,21 +86,10 @@ export class App extends Component {
           return
         }
 
-  //       if (images.length === 0) {
-  //         return toast.error('Sorry, there are no images matching your search query. Please try again.', {
-  //            position: 'top-center',
-  //          style: {
-  //   background: 'blue', // Колір фону повідомлення
-  //   color: 'white', // Колір тексту повідомлення
-  // },  
-  //         })
-  //         }
-
-      
-        
-          this.setState(prevState => ({
+          
+        this.setState({
             images: [...prevState.images, ...hits]
-          }))
+          })
       
 
       } catch (error) {
@@ -131,14 +121,21 @@ export class App extends Component {
   }
   
   handleLoadMore = () => {
+
+    const { images,totalHits } = this.state
+    // if (images.length < totalHits) {
+      
     this.setState(prevState => ({
       page: prevState.page + 1,
     }))
+    // }
+   
+
   }
 
   render() {
 
-    const {images,loading,error,page,totalHits} = this.state
+    const {images,loading,error,page,totalHits,showLoadMoreButton} = this.state
 
  const allImagesLoaded = images.length >= totalHits;
     return (
