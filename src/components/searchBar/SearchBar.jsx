@@ -1,4 +1,4 @@
-import { SearchBar, SearchForm, SearchFormButton, SearchFormButtonLabel, SearchFormInput } from "components/searchBar/SerchBar.styled"
+import { SearchBar, SearchForm, SearchFormButton, SearchFormInput} from "components/searchBar/SerchBar.styled"
 
 
 export const Searchbar = ({onSubmit}) => {
@@ -12,9 +12,11 @@ export const Searchbar = ({onSubmit}) => {
       autoFocus
       placeholder="Search images and photos"
             />
-             <SearchFormButton type="submit" className="button">
-      <SearchFormButtonLabel className="button-label">Search</SearchFormButtonLabel>
+ 
+                 <SearchFormButton type="submit" className="button">
+      Search
     </SearchFormButton>
+    
   </SearchForm>
 </SearchBar>)
 }

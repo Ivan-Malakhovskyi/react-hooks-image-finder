@@ -47,10 +47,11 @@ export class ImageGalleryItem extends Component {
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
                     style={customStyles}>
-                  <ImageGalleryItemImage src={largeImageURL} alt={ tags} />
+                  <ImageGalleryItemImage src={largeImageURL} alt={ tags}  />
               </Modal>
           </div>
       )
     }
 }
+
 
