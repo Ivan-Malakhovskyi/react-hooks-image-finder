@@ -8,6 +8,7 @@ export const ImageGallery = ({hits}) => {
             {hits.map(({ id, largeImageURL, webformatURL, tags }) => (
                 <ImageGalleryItem
                     key={id}
+                    id={id}
                     webformatURL={webformatURL}
                     largeImageURL={largeImageURL}
                     tags={tags} />))}  

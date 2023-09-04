@@ -1,7 +1,41 @@
 
 import { Component } from 'react';
 import Modal from 'react-modal';
+// import * as basicLightbox from 'basiclightbox'
+
+
+
+
+
+// import 'basiclightbox/dist/basicLightbox.min.css'; // Підключення стилів basicLightbox
 import { ImageGalleryItemImage, ImageItem } from './ImageGallery.styled';
+
+// console.log(basicLightbox)
+
+// export class ImageGalleryItem extends Component {
+//   openLightbox = () => {
+//     const { largeImageURL, tags } = this.props;
+//     basicLightbox.create(`
+//       <ImageGalleryItemImage src="${largeImageURL}" alt="${tags}" width="800" height="600" />
+//     `).show();
+//   };
+
+//   render() {
+//     const { webformatURL, tags } = this.props;
+
+//     return (
+//       <div>
+//         <ImageItem className="gallery-item" onClick={this.openLightbox}>
+//           <ImageGalleryItemImage src={webformatURL} alt={tags} />
+//         </ImageItem>
+//       </div>
+//     );
+//   }
+// }
+
+
+
+
 
 Modal.setAppElement('#root');
 const customStyles = {
@@ -34,12 +68,12 @@ export class ImageGalleryItem extends Component {
 
     render() {
 
-        const { webformatURL,largeImageURL, tags } = this.props
+        const { webformatURL,largeImageURL, tags,id } = this.props
         
       return (
        
           <div>
-               <ImageItem className="gallery-item" onClick={this.openModal}>
+          <ImageItem key={id} id={ id} className="gallery-item" onClick={this.openModal}>
           <ImageGalleryItemImage src={webformatURL} alt={tags} />
               </ImageItem>
               
@@ -47,7 +81,7 @@ export class ImageGalleryItem extends Component {
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
                     style={customStyles}>
-                  <ImageGalleryItemImage src={largeImageURL} alt={ tags}  />
+                  <img src={largeImageURL} alt={ tags}  width={600} height={400}/>
               </Modal>
           </div>
       )
