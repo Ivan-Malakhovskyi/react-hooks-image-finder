@@ -23,43 +23,6 @@ export class App extends Component {
 
   
 
-
-  async componentDidMount() {
-    
-    const { query } = this.state
-    
-    if (!query) {
-      return;
-    }
-
-    try {
-      this.setState({
-        loading: true,
-      })
-
-      const {hits} = await serviceGallery(query)
-  
-       
-
-      this.setState({
-        images: hits,
-      })
- 
-
-     console.log("hits", hits)
-    } catch (error) {
-      console.log(error)
-      this.setState({
-        error: true,
-      })
-    } finally {
-      this.setState({
-        loading: false,
-      })
-    }
-  }
-  
-
   async componentDidUpdate(prevProps, prevState) {
     const {query,page} = this.state
 
@@ -114,7 +77,7 @@ export class App extends Component {
   handleSubmit = (query) => {
 
    
-          this.setState({
+      this.setState({
       prevQuery: this.state.query,
       query: query,
       images: [],
